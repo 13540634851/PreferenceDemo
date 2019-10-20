@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:key="key0">
+
+    <com.can.testpreference.preference.CanEditTextPreference
+        android:key="key1"
+        android:summary="summary1"
+        android:title="签名"
+        app:allowDividerAbove="true" />
+
+    <com.can.testpreference.preference.ColorSelectPreference
+        android:key="key2"
+        android:title="签名顏色"
+        app:allowDividerAbove="true" />
+</PreferenceScreen>

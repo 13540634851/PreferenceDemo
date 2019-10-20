@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TestPreference</string>
+
+    <string-array name="type_entry">
+        <item>Type1</item>
+        <item>Type2</item>
+        <item>Type3</item>
+    </string-array>
+
+    <string-array name="type_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>
