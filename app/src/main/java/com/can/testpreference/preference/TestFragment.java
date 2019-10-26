@@ -1,12 +1,12 @@
 package com.can.testpreference.preference;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.can.testpreference.R;
+import com.can.testpreference.VerticalTextView;
 
 public class TestFragment extends PreferenceFragmentCompat {
     private static final String COLOR_SLECT_PREF = "key2";
@@ -33,11 +33,17 @@ public class TestFragment extends PreferenceFragmentCompat {
             public boolean onPreferenceClick(Preference preference) {
                 if (preference instanceof ColorSelectPreference) {
                     ColorSelectPreference colorSelectPreference1 = (ColorSelectPreference) preference;
-                    Log.i("wangcan", "colorSelectPreference1 " +
-                            getActivity().getColor(colorSelectPreference1.getSelectedColorId()));
                 }
                 return false;
             }
         });
+
+
+        CanEditTextPreference editTextPreference = findPreference("key1");
+        VerticalTextView view = getActivity().findViewById(R.id.show);
+        if (view == null) {
+            throw new RuntimeException("====????????????==========");
+        }
+        editTextPreference.setShowView(view);
     }
 }

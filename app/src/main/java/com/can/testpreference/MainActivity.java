@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.can.testpreference.preference.TestFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -11,9 +13,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Display the fragment as the main content.
-        //if (savedInstanceState == null) {
-        //    getSupportFragmentManager().beginTransaction().replace(android.R.id.content,
-        //            new TestFragment()).commit();
-        //}
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frg1,
+                    new TestFragment()).commit();
+        }
     }
 }

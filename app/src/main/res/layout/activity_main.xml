@@ -6,19 +6,22 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        android:background="#aaa">
 
-    <!--    <FrameLayout-->
-    <!--        android:id="@+id/content"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent" />-->
+        <com.can.testpreference.VerticalTextView
+            android:id="@+id/show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#000" />
 
-    <fragment
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/frg1"
-        android:name="com.can.testpreference.preference.TestFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

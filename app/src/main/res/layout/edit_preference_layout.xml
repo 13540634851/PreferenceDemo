@@ -30,6 +30,46 @@
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/edit_drable"
-        android:maxLines="1"
-        android:padding="8dp" />
+        android:gravity="top"
+        android:lines="3"
+        android:maxLines="3"
+        android:padding="8dp"
+        android:text="Hg我g是中国" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_text"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/direction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="方向" />
+
+        <Button
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="👈" />
+
+        <Button
+            android:id="@+id/center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="👉👈" />
+
+        <Button
+            android:id="@+id/right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="👉" />
+
+    </LinearLayout>
 </RelativeLayout>
