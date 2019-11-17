@@ -9,5 +9,5 @@
 7.行间距默认为0，如果需要修改请自行设置mSpacing
 
 # 预览
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20191117221011914.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3cxNzY0NjYyNTQz,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://github.com/13540634851/PreferenceDemo/blob/master/capture/%E6%B8%90%E5%8F%98%E7%BA%B5%E5%90%91%E4%B8%AD%E8%8B%B1%E6%96%87%E6%B7%B7%E5%90%88.png,size_16,color_FFFFFF,t_70)
 
