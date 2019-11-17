@@ -34,7 +34,7 @@
         android:lines="3"
         android:maxLines="3"
         android:padding="8dp"
-        android:text="Hg我g是中国" />
+        android:text="春晓\n作者-Meng\n朝代-Tang\ntest:春眠不觉晓\n处处test闻啼鸟\n夜来风雨声test\n花test落知test多少"/>
 
     <LinearLayout
         android:layout_width="match_parent"

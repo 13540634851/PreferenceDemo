@@ -6,7 +6,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.can.testpreference.R;
-import com.can.testpreference.VerticalTextView;
+import com.can.testpreference.view.VerticalTextView;
 
 public class TestFragment extends PreferenceFragmentCompat {
     private static final String COLOR_SLECT_PREF = "key2";

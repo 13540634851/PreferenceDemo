@@ -14,7 +14,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
 import com.can.testpreference.R;
-import com.can.testpreference.VerticalTextView;
+import com.can.testpreference.view.VerticalTextView;
 
 public class CanEditTextPreference extends Preference implements View.OnClickListener {
     private Context mContext;
@@ -87,6 +87,15 @@ public class CanEditTextPreference extends Preference implements View.OnClickLis
 
         if (edittext != null && showView != null) {
             showView.setText(edittext.getText().toString());
+            showView.setLinearGradientColor(new int[]{
+                    getContext().getColor(R.color.red),
+                    getContext().getColor(R.color.orange),
+                    getContext().getColor(R.color.yellow),
+                    getContext().getColor(R.color.green),
+                    getContext().getColor(R.color.blue),
+                    getContext().getColor(R.color.indigo),
+                    getContext().getColor(R.color.purple)
+            }, 45);
         }
 
         edittext.setOnTouchListener(new View.OnTouchListener() {
