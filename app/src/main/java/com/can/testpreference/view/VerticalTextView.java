@@ -30,6 +30,7 @@ public class VerticalTextView extends View {
     private float mChineseWordWdth = -1;
     private static final boolean DEBUG = true;
     private int[] mLinearGradientColor;
+    @LinearGradientTool.Duration
     private int mAngle;
 
     public VerticalTextView(Context context) {
@@ -53,7 +54,7 @@ public class VerticalTextView extends View {
     }
 
     //设置颜色渐变
-    public void setLinearGradientColor(int[] color, int angle) {
+    public void setLinearGradientColor(int[] color, @LinearGradientTool.Duration int angle) {
         mLinearGradientColor = color;
         mAngle = angle;
         update();
@@ -91,7 +92,8 @@ public class VerticalTextView extends View {
         mPaint = new Paint();
         mPaint.setTextSize(60);
         mPaint.setColor(Color.RED);
-
+        mPaint.setAntiAlias(true);
+        mPaint.setDither(true);
         mDebugPaint = new Paint();
         mDebugPaint.setStyle(Paint.Style.STROKE);
         mDebugPaint.setColor(Color.GRAY);
@@ -307,8 +309,6 @@ public class VerticalTextView extends View {
     private void drawHorizontal(Canvas canvas) {
         int startX;
         int startY = (int) (mSpacing - mFontMetrics.ascent);
-
-
         if (mLinearGradientColor != null) {
             mPaint.setShader(LinearGradientTool.getLinearGradient(0, 0, mViewWidth, mViewHeight, mLinearGradientColor, mAngle));
         }
