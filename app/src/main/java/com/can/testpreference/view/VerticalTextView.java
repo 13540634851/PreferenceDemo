@@ -18,6 +18,7 @@ public class VerticalTextView extends View {
     private Paint mPaint;
     private Paint mDebugPaint;
     private float mSpacing;
+    private float mPadding;
     private String mText;
     private boolean mIsHorizontal = false;
     private Paint.FontMetrics mFontMetrics;
@@ -32,6 +33,7 @@ public class VerticalTextView extends View {
     private int[] mLinearGradientColor;
     @LinearGradientTool.Duration
     private int mAngle;
+    private float mTextSize = 60;
 
     public VerticalTextView(Context context) {
         super(context);
@@ -78,6 +80,24 @@ public class VerticalTextView extends View {
         update();
     }
 
+    public void setTextSize(float textSize) {
+        mTextSize = textSize;
+        if (mPaint != null) {
+            mPaint.setTextSize(mTextSize);
+        }
+        update();
+    }
+
+    public void setPadding(float padding) {
+        this.mPadding = padding;
+        update();
+    }
+
+    public void setSpacing(float spacing) {
+        this.mSpacing = spacing;
+        update();
+    }
+
     public boolean isHorizontal() {
         return mIsHorizontal;
     }
@@ -90,7 +110,7 @@ public class VerticalTextView extends View {
 
     private void init() {
         mPaint = new Paint();
-        mPaint.setTextSize(60);
+        mPaint.setTextSize(mTextSize);
         mPaint.setColor(Color.RED);
         mPaint.setAntiAlias(true);
         mPaint.setDither(true);
@@ -110,7 +130,6 @@ public class VerticalTextView extends View {
         mFontMetrics = mPaint.getFontMetrics();
         mWordHeight = mFontMetrics.descent - mFontMetrics.ascent;
         mVerticalwordHeight = mFontMetrics.descent - mFontMetrics.ascent;
-        mSpacing = 0;
 
         if (mIsHorizontal) {
             measureHorizontal(widthMeasureSpec, heightMeasureSpec);
@@ -144,13 +163,13 @@ public class VerticalTextView extends View {
                         maxHeight = height;
                     }
                 }
-                maxHeight += 2 * (mSpacing);
+                maxHeight += 2 * (mPadding);
             }
             mViewWidth += maxHeight;
         }
 
         if (heightSpecMode == MeasureSpec.AT_MOST) {
-            mViewHeight = (int) ((mWordHeight + mSpacing) * lineCount + mSpacing);
+            mViewHeight = (int) ((mWordHeight + mSpacing) * lineCount - mSpacing + 2 * mPadding);
         }
         if (widthSpecSize < mViewWidth) {
             mViewWidth = widthSpecSize;
@@ -179,7 +198,7 @@ public class VerticalTextView extends View {
             if (mDrawText != null && mDrawText.length > 0) {
                 widthLine = mDrawText.length;
             }
-            mViewWidth = (int) (mWordHeight * widthLine + mSpacing);
+            mViewWidth = (int) ((mSpacing + mWordHeight) * widthLine - mSpacing + 2 * mPadding);
         }
 
         mChineseWordWdth = -1;
@@ -214,7 +233,7 @@ public class VerticalTextView extends View {
 
 
         if (heightSpecMode == MeasureSpec.AT_MOST) {
-            mViewHeight = (int) (maxHeight + 2 * mSpacing);
+            mViewHeight = (int) (maxHeight + 2 * mPadding);
         }
 
         if (widthSpecSize < mViewWidth) {
@@ -240,8 +259,8 @@ public class VerticalTextView extends View {
 
     //垂直绘制
     private void drawVertical(Canvas canvas) {
-        int startX = (int) mSpacing;
-        int startY = (int) mSpacing;
+        int startX = (int) mPadding;
+        int startY = (int) mPadding;
 
         ChineseWordsWatch chineseWordsWatch = new ChineseWordsWatch();
         for (int i = mDrawText.length - 1; i >= 0; i--) {
@@ -253,7 +272,7 @@ public class VerticalTextView extends View {
                 if (mGravity == Gravity.CENTER) {
                     currentheight = (mViewHeight - popHight) >> 1;
                 } else if (mGravity == Gravity.END) {
-                    currentheight = (int) (mViewHeight - 2 * mSpacing - popHight);
+                    currentheight = (int) (mViewHeight - mPadding - popHight);
                 } else {
                     currentheight = startY;
                 }
@@ -301,23 +320,23 @@ public class VerticalTextView extends View {
                     currentheight += mPaint.measureText(readStr);
                 }
             }
-            startX += mWordHeight;
+            startX += mWordHeight+mSpacing;
         }
     }
 
     //水平绘制
     private void drawHorizontal(Canvas canvas) {
         int startX;
-        int startY = (int) (mSpacing - mFontMetrics.ascent);
+        int startY = (int) (mPadding - mFontMetrics.ascent);
         if (mLinearGradientColor != null) {
             mPaint.setShader(LinearGradientTool.getLinearGradient(0, 0, mViewWidth, mViewHeight, mLinearGradientColor, mAngle));
         }
         for (String dtxt : mDrawText) {
             float textWidth = mPaint.measureText(dtxt);
             if (mGravity == Gravity.START) {
-                startX = (int) mSpacing;
+                startX = (int) mPadding;
             } else if (mGravity == Gravity.END) {
-                startX = (int) (mViewWidth - mSpacing - textWidth);
+                startX = (int) (mViewWidth - mPadding - textWidth);
             } else {
                 startX = ((int) (mViewWidth - textWidth)) >> 1;
             }

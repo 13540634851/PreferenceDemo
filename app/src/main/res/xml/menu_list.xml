@@ -9,8 +9,15 @@
         android:title="签名"
         app:allowDividerAbove="true" />
 
-    <com.can.testpreference.preference.ColorSelectPreference
-        android:key="key2"
-        android:title="签名顏色"
-        app:allowDividerAbove="true" />
+    <SeekBarPreference
+        android:key="key_seekbar"
+        android:title="字体大小" />
+
+    <SeekBarPreference
+        android:key="key_padding"
+        android:title="文本间距" />
+
+    <SeekBarPreference
+        android:key="key_spacing"
+        android:title="行间距" />
 </PreferenceScreen>
